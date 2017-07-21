@@ -213,6 +213,10 @@ export class RenderQueueStream extends Readable {
             }
           }
         }
+        if (type === "option" && typeof props.value !== "undefined" && props.value === parent.props.value) {
+          // Parent value sets children value
+          renderedString += ` selected`;
+        }
       }
       // Voided element, push directly to queue
       if (isVoidElement) {
